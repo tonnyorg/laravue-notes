@@ -62,9 +62,10 @@
 
         methods: {
             addNew() {
-                this.notes.unshift(Object.assign({
+                this.notes.unshift(Object.assign({}, this.defaultNote, {
+                    style: this.styles[Math.floor(Math.random() * this.styles.length)],
                     tempId: Math.random().toString(36).substr(2, 9),
-                }, this.defaultNote));
+                }));
             },
 
             getNotes() {
