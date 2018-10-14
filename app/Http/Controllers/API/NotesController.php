@@ -23,7 +23,9 @@ class NotesController extends Controller
         $token = filterTokenValue($request->cookie('token', ''));
 
         return response()->json([
-            'notes' => Note::byGuestToken($token)->get(),
+            'notes' => Note::byGuestToken($token)
+                ->orderBy('id', 'desc')
+                ->get(),
         ]);
     }
 
