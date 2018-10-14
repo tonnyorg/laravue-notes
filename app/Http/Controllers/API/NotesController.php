@@ -23,7 +23,7 @@ class NotesController extends Controller
         $token = filterTokenValue($request->cookie('token', ''));
 
         return response()->json([
-            'notes' => Note::byGuestToken($token)
+            'notes' => Note::byGuestsPublicToken($token)
                 ->orderBy('id', 'desc')
                 ->get(),
         ]);
@@ -38,7 +38,7 @@ class NotesController extends Controller
     public function store(StoreRequest $request)
     {
         $token = filterTokenValue($request->cookie('token', ''));
-        $guest = Guest::byToken($token)->first();
+        $guest = Guest::byPublicToken($token)->first();
 
         $note = Note::create([
             'content' => $request->input('content'),
@@ -62,7 +62,7 @@ class NotesController extends Controller
     public function show(Request $request, $id)
     {
         $token = filterTokenValue($request->cookie('token', ''));
-        $note = Note::whereId($id)->byGuestToken($token)->first();
+        $note = Note::whereId($id)->byGuestsPublicToken($token)->first();
 
         if (!$note) {
             return response()->json([
@@ -86,7 +86,7 @@ class NotesController extends Controller
     public function update(UpdateRequest $request, $id)
     {
         $token = filterTokenValue($request->cookie('token', ''));
-        $note = Note::whereId($id)->byGuestToken($token)->first();
+        $note = Note::whereId($id)->byGuestsPublicToken($token)->first();
 
         if (!$note) {
             return response()->json([
@@ -115,7 +115,7 @@ class NotesController extends Controller
     public function destroy(Request $request, $id)
     {
         $token = filterTokenValue($request->cookie('token', ''));
-        $note = Note::whereId($id)->byGuestToken($token)->first();
+        $note = Note::whereId($id)->byGuestsPublicToken($token)->first();
 
         if (!$note) {
             return response()->json([

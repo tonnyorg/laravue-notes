@@ -41,16 +41,16 @@ class Note extends Model
     }
 
     /**
-     * Scope a query to filter by guest's token.
+     * Scope a query to filter by guest's token before encryption.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  string   $token
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeByGuestToken($query, string $token)
+    public function scopeByGuestsPublicToken($query, string $token)
     {
         return $query->whereHas('guest', function ($query) use ($token) {
-            $query->where('token', $token);
+            $query->where('token', getPrivateTokenValue($token));
         });
     }
 }

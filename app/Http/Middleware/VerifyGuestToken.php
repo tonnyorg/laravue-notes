@@ -18,7 +18,7 @@ class VerifyGuestToken
     public function handle($request, Closure $next)
     {
         $token = filterTokenValue($request->cookie('token', ''));
-        $guest = Guest::byToken($token)->first();
+        $guest = Guest::byPublicToken($token)->first();
 
         if (!$guest) {
             return response()->json([

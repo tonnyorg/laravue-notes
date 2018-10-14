@@ -21,21 +21,20 @@ class TokenController extends Controller
         $token = filterTokenValue($request->cookie('token', ''));
 
         if (!empty($token)) {
-            $guest = Guest::byToken($token)
-                ->first();
+            $guest = Guest::byPublicToken($token)->first();
 
             if ($guest) {
-                return response()->json([])
+                return response()->json([$token])
                     ->cookie('token', $token);
             }
         }
 
         $token = md5(hexdec(uniqid()));
         $guest = Guest::create([
-            'token' => $token,
+            'token' => getPrivateTokenValue($token),
         ]);
 
-        return response()->json([])
+        return response()->json([$token])
             ->cookie('token', $token);
     }
 }

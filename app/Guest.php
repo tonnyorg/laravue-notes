@@ -40,4 +40,16 @@ class Guest extends Model
     {
         return $query->where('token', $token);
     }
+
+    /**
+     * Scope a query to filter by token before final encryption.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  string   $token
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeByPublicToken($query, string $token)
+    {
+        return $query->where('token', getPrivateTokenValue($token));
+    }
 }
