@@ -28,6 +28,6 @@ if (!function_exists('getPrivateTokenValue')) {
      */
     function getPrivateTokenValue(string $token)
     {
-        return md5(bcrypt($token));
+        return md5($token);
     }
 }
