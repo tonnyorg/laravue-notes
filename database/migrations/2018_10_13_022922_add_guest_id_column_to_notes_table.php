@@ -20,7 +20,7 @@ class AddGuestIdColumnToNotesTable extends Migration
 
             $table->foreign('guest_id')
                 ->references('id')
-                ->on('users')
+                ->on('guests')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
