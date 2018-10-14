@@ -1,7 +1,7 @@
 {
     "name": "fullstackmx/laravue-notes",
-    "description": "Laravel and Vue based note-tacking app.",
-    "keywords": ["laravue", "note-tacking", "laravel", "vue"],
+    "description": "Laravel and Vue based note-taking app.",
+    "keywords": ["laravue", "note-taking", "laravel", "vue"],
     "license": "MIT",
     "type": "project",
     "require": {

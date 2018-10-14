@@ -17,7 +17,7 @@
                 <section class="jumbotron text-center">
                     <div class="container">
                         <h1 class="jumbotron-heading">LaraVue Notes</h1>
-                        <p class="lead text-muted">A basic <em>Note-Tacking</em> app based on Laravel &amp; Vue.</p>
+                        <p class="lead text-muted">A basic <em>Note-Taking</em> app based on Laravel &amp; Vue.</p>
                     </div>
                 </section>
 

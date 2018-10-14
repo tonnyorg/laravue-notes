@@ -1,7 +1,7 @@
 
 ## LaraVue Notes
 
-A public *note-tacking* application based on Laravel 5.7, Vue 2 and Bootstrap 4.
+A public *note-taking* application based on Laravel 5.7, Vue 2 and Bootstrap 4.
 
 The goal is to allow anyone to create and manage their notes based on a *unique* visitor token.
 
