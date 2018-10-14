@@ -19,4 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::namespace('API')->group(function() {
     Route::get('token', 'TokenController@index');
+
+    Route::middleware('verified.guest.token')->group(function() {
+        Route::apiResource('notes', 'NotesController');
+    });
 });
