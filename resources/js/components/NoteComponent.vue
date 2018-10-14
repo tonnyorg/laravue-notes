@@ -36,7 +36,7 @@
                         >Delete</button>
                     </div>
 
-                    <small v-if="note.id" class="text-muted">ID: {{ note.id }}</small>
+                    <small class="text-muted text-uppercase">{{ note.id ? 'Id: ' + note.id : 'New' }}</small>
                 </div>
             </form>
         </div>
