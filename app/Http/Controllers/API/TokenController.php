@@ -35,9 +35,7 @@ class TokenController extends Controller
             'token' => md5(uniqid()),
         ]);
 
-        return response()->json([
-                'token' => $guest->token,
-            ])
+        return response()->json([])
             ->cookie('token', $guest->token);
     }
 }
