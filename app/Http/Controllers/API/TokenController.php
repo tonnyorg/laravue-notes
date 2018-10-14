@@ -18,7 +18,7 @@ class TokenController extends Controller
     public function index(Request $request)
     {
         $guest = null;
-        $token = preg_replace('/[^a-z0-9]/i', '', $request->cookie('token'));
+        $token = filterTokenValue($request->cookie('token', ''));
 
         if (!empty($token)) {
             $guest = Guest::byToken($token)->first();
