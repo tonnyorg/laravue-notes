@@ -9,7 +9,7 @@ The goal is to allow anyone to create and manage their notes based on a *unique*
 
 ##### How to install?
 
-- Clone this repository.
+- Clone this repository or install it through `composer create-project fullstackmx/laravue-notes`.
 - Run `composer install --no-dev` for production or `composer install` for local environments.
 - Run the migrations `php artisan migrate`.
 - Enjoy!
