@@ -15,6 +15,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.component('notes-component', require('./components/NotesComponent.vue'));
+
 const app = new Vue({
     el: '#app'
 });
